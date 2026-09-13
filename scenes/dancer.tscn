@@ -3,35 +3,144 @@
 [ext_resource type="Script" uid="uid://c2455s2bhhlin" path="res://scripts/dancer/Dancer.cs" id="1_coskt"]
 [ext_resource type="Texture2D" uid="uid://c7ncvcekndidb" path="res://sprites/white circle w transparent bg.png" id="1_l4u0v"]
 [ext_resource type="Script" uid="uid://bcw102xy2hcse" path="res://scripts/dancer/PingpongRotation.cs" id="2_sbecm"]
+[ext_resource type="Script" uid="uid://5h5rui73yofx" path="res://scripts/dancer/WiggleInPlace.cs" id="2_up8c3"]
 [ext_resource type="Script" uid="uid://c70sprhlyho0w" path="res://scripts/dancer/Joint.cs" id="3_up8c3"]
-
-[sub_resource type="Curve" id="Curve_md2yd"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [node name="Dancer" type="Node3D" unique_id=985012125 node_paths=PackedStringArray("joints", "body")]
 script = ExtResource("1_coskt")
-joints = [NodePath("body/chest/neck joint")]
-maxBodyOffset = 5.0
+joints = [NodePath("body/body wiggle/chest/neck joint"), NodePath("body/body wiggle/r shoulder joint"), NodePath("body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r forearm joint"), NodePath("body/body wiggle/l shoulder joint"), NodePath("body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l forearm joint"), NodePath("body/body wiggle/r hip joint"), NodePath("body/body wiggle/r hip joint/r hip wiggle/r knee/r calve joint"), NodePath("body/body wiggle/l hip joint"), NodePath("body/body wiggle/l hip joint/l hip wiggle/l knee/l calve joint")]
+maxBodyOffset = 7.0
 body = NodePath("body")
 
-[node name="body" type="Node3D" parent="." unique_id=1621905610]
+[node name="body" type="Node3D" parent="." unique_id=191748250]
 
-[node name="chest" type="Sprite3D" parent="body" unique_id=515566796]
+[node name="body wiggle" type="Node3D" parent="body" unique_id=1621905610]
+script = ExtResource("2_up8c3")
+xFrequency = 0.005
+yFrequency = 0.004
+xAmplitude = 0.271
+yAmplitude = 0.259
+
+[node name="chest" type="Sprite3D" parent="body/body wiggle" unique_id=515566796]
 texture = ExtResource("1_l4u0v")
 
-[node name="neck joint" type="Node3D" parent="body/chest" unique_id=369756032]
+[node name="neck joint" type="Node3D" parent="body/body wiggle/chest" unique_id=369756032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.567, 0)
 script = ExtResource("3_up8c3")
 minAngle = -0.6
 maxAngle = 0.6
-ease = SubResource("Curve_md2yd")
 
-[node name="neck wiggle" type="Node3D" parent="body/chest/neck joint" unique_id=252969180]
+[node name="neck wiggle" type="Node3D" parent="body/body wiggle/chest/neck joint" unique_id=252969180]
 script = ExtResource("2_sbecm")
-amplitude = 0.06
-frequency = 5.0
 
-[node name="head" type="Sprite3D" parent="body/chest/neck joint/neck wiggle" unique_id=1714397206]
+[node name="head" type="Sprite3D" parent="body/body wiggle/chest/neck joint/neck wiggle" unique_id=1714397206]
 transform = Transform3D(1.11, 0, 0, 0, 1.11, 0, 0, 0, 1.11, 0, 2.0401182, 0)
+pixel_size = 0.011
+texture = ExtResource("1_l4u0v")
+
+[node name="r shoulder joint" type="Node3D" parent="body/body wiggle" unique_id=1208104587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0061064, 0.9049227, 0)
+script = ExtResource("3_up8c3")
+minAngle = -1.3
+maxAngle = 1.3
+
+[node name="r shoulder wiggle" type="Node3D" parent="body/body wiggle/r shoulder joint" unique_id=2018414979]
+script = ExtResource("2_sbecm")
+
+[node name="r elbow" type="Sprite3D" parent="body/body wiggle/r shoulder joint/r shoulder wiggle" unique_id=898934293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.374212, 0, 0)
+pixel_size = 0.004
+texture = ExtResource("1_l4u0v")
+
+[node name="r forearm joint" type="Node3D" parent="body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow" unique_id=761649857]
+script = ExtResource("3_up8c3")
+minAngle = -1.0
+maxAngle = 1.0
+
+[node name="r forearm wiggle" type="Node3D" parent="body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r forearm joint" unique_id=205392247]
+script = ExtResource("2_sbecm")
+
+[node name="r hand" type="Sprite3D" parent="body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r forearm joint/r forearm wiggle" unique_id=573463815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8805926, 0, 0)
+pixel_size = 0.006
+texture = ExtResource("1_l4u0v")
+
+[node name="l shoulder joint" type="Node3D" parent="body/body wiggle" unique_id=488833900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.006, 0.905, 0)
+script = ExtResource("3_up8c3")
+minAngle = -1.3
+maxAngle = 1.3
+
+[node name="l shoulder wiggle" type="Node3D" parent="body/body wiggle/l shoulder joint" unique_id=1057404822]
+script = ExtResource("2_sbecm")
+
+[node name="l elbow" type="Sprite3D" parent="body/body wiggle/l shoulder joint/l shoulder wiggle" unique_id=1064097233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.374, 0, 0)
+pixel_size = 0.004
+texture = ExtResource("1_l4u0v")
+
+[node name="l forearm joint" type="Node3D" parent="body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow" unique_id=484709465]
+script = ExtResource("3_up8c3")
+minAngle = -1.0
+maxAngle = 1.0
+
+[node name="l forearm wiggle" type="Node3D" parent="body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l forearm joint" unique_id=1822620867]
+script = ExtResource("2_sbecm")
+
+[node name="l hand" type="Sprite3D" parent="body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l forearm joint/l forearm wiggle" unique_id=2051257929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.881, 0, 0)
+pixel_size = 0.006
+texture = ExtResource("1_l4u0v")
+
+[node name="r hip joint" type="Node3D" parent="body/body wiggle" unique_id=570967704]
+transform = Transform3D(0.54317445, -0.8396199, 0, 0.8396199, 0.54317445, 0, 0, 0, 1, -1.504233, -1.5659494, 0)
+script = ExtResource("3_up8c3")
+maxAngle = 2.0
+
+[node name="r hip wiggle" type="Node3D" parent="body/body wiggle/r hip joint" unique_id=1027882687]
+script = ExtResource("2_sbecm")
+
+[node name="r knee" type="Sprite3D" parent="body/body wiggle/r hip joint/r hip wiggle" unique_id=1791127249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.734, 0, 0)
+pixel_size = 0.004
+texture = ExtResource("1_l4u0v")
+
+[node name="r calve joint" type="Node3D" parent="body/body wiggle/r hip joint/r hip wiggle/r knee" unique_id=804528317]
+script = ExtResource("3_up8c3")
+minAngle = -1.0
+maxAngle = 1.0
+
+[node name="r calve wiggle" type="Node3D" parent="body/body wiggle/r hip joint/r hip wiggle/r knee/r calve joint" unique_id=123629597]
+script = ExtResource("2_sbecm")
+
+[node name="r foot" type="Sprite3D" parent="body/body wiggle/r hip joint/r hip wiggle/r knee/r calve joint/r calve wiggle" unique_id=260245808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.001, 0, 0)
+pixel_size = 0.006
+texture = ExtResource("1_l4u0v")
+
+[node name="l hip joint" type="Node3D" parent="body/body wiggle" unique_id=123581385]
+transform = Transform3D(-0.54317456, -0.8396198, 0, 0.8396198, -0.54317456, 0, 0, 0, 1, 1.504, -1.566, 0)
+script = ExtResource("3_up8c3")
+minAngle = 1.1
+maxAngle = 3.1
+
+[node name="l hip wiggle" type="Node3D" parent="body/body wiggle/l hip joint" unique_id=1913494730]
+script = ExtResource("2_sbecm")
+
+[node name="l knee" type="Sprite3D" parent="body/body wiggle/l hip joint/l hip wiggle" unique_id=1726038523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.734, 0, 0)
+pixel_size = 0.004
+texture = ExtResource("1_l4u0v")
+
+[node name="l calve joint" type="Node3D" parent="body/body wiggle/l hip joint/l hip wiggle/l knee" unique_id=1520782072]
+script = ExtResource("3_up8c3")
+minAngle = -1.0
+maxAngle = 1.0
+
+[node name="l calve wiggle" type="Node3D" parent="body/body wiggle/l hip joint/l hip wiggle/l knee/l calve joint" unique_id=553842725]
+script = ExtResource("2_sbecm")
+
+[node name="l foot" type="Sprite3D" parent="body/body wiggle/l hip joint/l hip wiggle/l knee/l calve joint/l calve wiggle" unique_id=1418150444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.001, 0, 0)
+pixel_size = 0.006
 texture = ExtResource("1_l4u0v")

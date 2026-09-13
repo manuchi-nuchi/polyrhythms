@@ -6,13 +6,17 @@ public partial class Joint : Node3D
 	[Export] double minAngle;
 	[Export] double maxAngle;
 	[Export] float duration = 0.2f;
-	[Export] Curve ease;
+	float maxDelay = 0.2f;
+	Curve ease = new Curve();
 
 
 	public override void _Ready()
 	{
+        ease.AddPoint(Vector2.Zero);
+        ease.AddPoint(Vector2.One);
+
 		NewPose(true);
-	}
+}
 
 
 	Vector3 newRotation = Vector3.Zero;
@@ -32,6 +36,8 @@ public partial class Joint : Node3D
 
 	async void MoveTo(float to)
 	{
+		//await ToSignal(GetTree().CreateTimer(GD.RandRange(0f, maxDelay)), "timeout");
+
 		float from = Rotation.Z;
 		float t = 0, v;
 		float startTime = Time.GetTicksMsec(), now;
