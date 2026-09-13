@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cf1r72j7yhsbn"]
+
+[ext_resource type="PackedScene" uid="uid://cd75dy0h0f2uj" path="res://scenes/dancer.tscn" id="1_o5qli"]
+
+[sub_resource type="Environment" id="Environment_xt7np"]
+background_mode = 1
+
+[node name="Main" type="Node3D" unique_id=2045995922]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1921282444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.938476)
+environment = SubResource("Environment_xt7np")
+
+[node name="Dancer" parent="." unique_id=985012125 instance=ExtResource("1_o5qli")]
