@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\dancer\\joint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\dancer\\joint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\dancer\\dancer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\dancer\\dancer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\dancer\\joint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\dancer\\joint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\dancer\\pingpongrotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
             },
             {
               "$type": "Document",
@@ -42,26 +42,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Joint.cs",
               "DocumentMoniker": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\Joint.cs",
               "RelativeDocumentMoniker": "scripts\\dancer\\Joint.cs",
               "ToolTip": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\Joint.cs",
               "RelativeToolTip": "scripts\\dancer\\Joint.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-13T06:19:34.222Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Dancer.cs",
               "DocumentMoniker": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\Dancer.cs",
               "RelativeDocumentMoniker": "scripts\\dancer\\Dancer.cs",
               "ToolTip": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\Dancer.cs",
               "RelativeToolTip": "scripts\\dancer\\Dancer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-13T06:19:07.07Z",
               "EditorCaption": ""

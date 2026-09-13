@@ -5,9 +5,15 @@
 [ext_resource type="Script" uid="uid://bcw102xy2hcse" path="res://scripts/dancer/PingpongRotation.cs" id="2_sbecm"]
 [ext_resource type="Script" uid="uid://c70sprhlyho0w" path="res://scripts/dancer/Joint.cs" id="3_up8c3"]
 
-[node name="Dancer" type="Node3D" unique_id=985012125 node_paths=PackedStringArray("joints")]
+[sub_resource type="Curve" id="Curve_md2yd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Dancer" type="Node3D" unique_id=985012125 node_paths=PackedStringArray("joints", "body")]
 script = ExtResource("1_coskt")
-joints = [NodePath("body/chest/neck joint"), NodePath("body/chest/neck joint")]
+joints = [NodePath("body/chest/neck joint")]
+maxBodyOffset = 5.0
+body = NodePath("body")
 
 [node name="body" type="Node3D" parent="." unique_id=1621905610]
 
@@ -15,10 +21,11 @@ joints = [NodePath("body/chest/neck joint"), NodePath("body/chest/neck joint")]
 texture = ExtResource("1_l4u0v")
 
 [node name="neck joint" type="Node3D" parent="body/chest" unique_id=369756032]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5666282, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.567, 0)
 script = ExtResource("3_up8c3")
-min = -0.5
-max = 0.5
+minAngle = -0.6
+maxAngle = 0.6
+ease = SubResource("Curve_md2yd")
 
 [node name="neck wiggle" type="Node3D" parent="body/chest/neck joint" unique_id=252969180]
 script = ExtResource("2_sbecm")
