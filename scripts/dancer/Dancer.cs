@@ -19,18 +19,18 @@ public partial class Dancer : Node3D
     }
 
 
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        if (@event is InputEventKey eventKey)
-        {
-            if (eventKey.Pressed && eventKey.Keycode == Key.N && !@event.IsEcho())
-            {
-                NewPose();
-            }
-        }
-    }
+    //public override void _UnhandledInput(InputEvent @event)
+    //{
+    //    if (@event is InputEventKey eventKey)
+    //    {
+    //        if (eventKey.Pressed && eventKey.Keycode == Key.N && !@event.IsEcho())
+    //        {
+    //            NewPose();
+    //        }
+    //    }
+    //}
 
-    void NewPose()
+    public void NewPose()
     {
         foreach (Joint joint in joints)
             joint.NewPose();

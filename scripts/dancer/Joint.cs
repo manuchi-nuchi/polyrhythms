@@ -5,7 +5,7 @@ public partial class Joint : Node3D
 {
 	[Export] double minAngle;
 	[Export] double maxAngle;
-	[Export] float duration = 0.2f;
+	float duration = 0.15f;
 	float maxDelay = 0.2f;
 	Curve ease = new Curve();
 
