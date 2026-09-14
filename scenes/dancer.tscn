@@ -2,9 +2,37 @@
 
 [ext_resource type="Script" uid="uid://c2455s2bhhlin" path="res://scripts/dancer/Dancer.cs" id="1_coskt"]
 [ext_resource type="Texture2D" uid="uid://c7ncvcekndidb" path="res://sprites/white circle w transparent bg.png" id="1_l4u0v"]
-[ext_resource type="Script" uid="uid://bcw102xy2hcse" path="res://scripts/dancer/PingpongRotation.cs" id="2_sbecm"]
-[ext_resource type="Script" uid="uid://5h5rui73yofx" path="res://scripts/dancer/WiggleInPlace.cs" id="2_up8c3"]
+[ext_resource type="Script" uid="uid://bcw102xy2hcse" path="res://scripts/utils/PingpongRotation.cs" id="2_sbecm"]
+[ext_resource type="Script" uid="uid://5h5rui73yofx" path="res://scripts/utils/WiggleInPlace.cs" id="2_up8c3"]
 [ext_resource type="Script" uid="uid://c70sprhlyho0w" path="res://scripts/dancer/Joint.cs" id="3_up8c3"]
+[ext_resource type="Script" uid="uid://cl885pi3owd5o" path="res://scripts/utils/ConstantRotation.cs" id="6_gum5n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4gaf"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_l4u0v")
+
+[sub_resource type="Curve" id="Curve_up8c3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ysbu8"]
+curve = SubResource("Curve_up8c3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_up8c3"]
+lifetime_randomness = 0.5
+angle_min = -720.0
+angle_max = 720.0
+inherit_velocity_ratio = 1.0
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_ysbu8")
+color = Color(0.91924584, 0.06363844, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gum5n"]
 
 [node name="Dancer" type="Node3D" unique_id=985012125 node_paths=PackedStringArray("joints", "body")]
 script = ExtResource("1_coskt")
@@ -144,3 +172,15 @@ script = ExtResource("2_sbecm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.001, 0, 0)
 pixel_size = 0.006
 texture = ExtResource("1_l4u0v")
+
+[node name="particles holder" type="Node3D" parent="." unique_id=1495681103]
+script = ExtResource("6_gum5n")
+secondsPerLoop = 10.0
+
+[node name="particles" type="GPUParticles3D" parent="particles holder" unique_id=829475381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.01, 0)
+material_override = SubResource("StandardMaterial3D_h4gaf")
+amount = 30
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_up8c3")
+draw_pass_1 = SubResource("QuadMesh_gum5n")
