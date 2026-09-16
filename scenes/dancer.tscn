@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c2455s2bhhlin" path="res://scripts/dancer/Dancer.cs" id="1_coskt"]
 [ext_resource type="Texture2D" uid="uid://c7ncvcekndidb" path="res://sprites/white circle w transparent bg.png" id="1_l4u0v"]
+[ext_resource type="PackedScene" uid="uid://b4lj3nxo48x0n" path="res://scenes/pattern beat.tscn" id="2_2cwek"]
 [ext_resource type="Script" uid="uid://bcw102xy2hcse" path="res://scripts/utils/PingpongRotation.cs" id="2_sbecm"]
 [ext_resource type="Script" uid="uid://5h5rui73yofx" path="res://scripts/utils/WiggleInPlace.cs" id="2_up8c3"]
 [ext_resource type="Script" uid="uid://c70sprhlyho0w" path="res://scripts/dancer/Joint.cs" id="3_up8c3"]
-[ext_resource type="Script" uid="uid://cl885pi3owd5o" path="res://scripts/utils/ConstantRotation.cs" id="6_gum5n"]
+[ext_resource type="Script" uid="uid://cl885pi3owd5o" path="res://scripts/utils/ConstantRotation.cs" id="6_5seu1"]
+[ext_resource type="Script" uid="uid://dxvlypbf2ngrk" path="res://scripts/utils/SinedRotation.cs" id="6_gum5n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4gaf"]
 transparency = 1
@@ -16,7 +18,7 @@ albedo_texture = ExtResource("1_l4u0v")
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ysbu8"]
+[sub_resource type="CurveTexture" id="CurveTexture_2cwek"]
 curve = SubResource("Curve_up8c3")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_up8c3"]
@@ -25,11 +27,11 @@ angle_min = -720.0
 angle_max = 720.0
 inherit_velocity_ratio = 1.0
 spread = 180.0
-initial_velocity_max = 2.0
+initial_velocity_max = 0.29999998
 gravity = Vector3(0, 0, 0)
 scale_min = 0.01
 scale_max = 0.29999998
-scale_curve = SubResource("CurveTexture_ysbu8")
+scale_curve = SubResource("CurveTexture_2cwek")
 color = Color(0.91924584, 0.06363844, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_gum5n"]
@@ -39,6 +41,7 @@ script = ExtResource("1_coskt")
 joints = [NodePath("body/body wiggle/chest/neck joint"), NodePath("body/body wiggle/r shoulder joint"), NodePath("body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r forearm joint"), NodePath("body/body wiggle/l shoulder joint"), NodePath("body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l forearm joint"), NodePath("body/body wiggle/r hip joint"), NodePath("body/body wiggle/r hip joint/r hip wiggle/r knee/r calve joint"), NodePath("body/body wiggle/l hip joint"), NodePath("body/body wiggle/l hip joint/l hip wiggle/l knee/l calve joint")]
 maxBodyOffset = 7.0
 body = NodePath("body")
+beatScene = ExtResource("2_2cwek")
 
 [node name="body" type="Node3D" parent="." unique_id=191748250]
 
@@ -173,14 +176,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.001, 0, 0)
 pixel_size = 0.006
 texture = ExtResource("1_l4u0v")
 
-[node name="particles holder" type="Node3D" parent="." unique_id=1495681103]
-script = ExtResource("6_gum5n")
-secondsPerLoop = 10.0
+[node name="tempo holder" type="Node3D" parent="." unique_id=1495681103]
+script = ExtResource("6_5seu1")
+bpm = 50
 
-[node name="particles" type="GPUParticles3D" parent="particles holder" unique_id=829475381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.01, 0)
+[node name="particles" type="GPUParticles3D" parent="tempo holder" unique_id=829475381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1589005, 6.0830483, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_h4gaf")
-amount = 30
-local_coords = true
+amount = 1618
+fixed_fps = 0
+transform_align = 1
+transform_align_channel_filter = 1
 process_material = SubResource("ParticleProcessMaterial_up8c3")
 draw_pass_1 = SubResource("QuadMesh_gum5n")
+script = ExtResource("6_gum5n")
+bpm = 191
+
+[node name="Sprite3D" type="Sprite3D" parent="tempo holder" unique_id=762075555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+pixel_size = 0.001
+texture = ExtResource("1_l4u0v")

@@ -5,9 +5,10 @@ public partial class Joint : Node3D
 {
 	[Export] double minAngle;
 	[Export] double maxAngle;
-	float duration = 0.15f;
+	float duration = 0.2f;
 	float maxDelay = 0.2f;
 	Curve ease = new Curve();
+	int unnecessaryTurns = 1;
 
 
 	public override void _Ready()
@@ -16,7 +17,12 @@ public partial class Joint : Node3D
         ease.AddPoint(Vector2.One);
 
 		NewPose(true);
-}
+	}
+
+	public void Init(int sign)
+	{
+		unnecessaryTurns *= sign;
+	}
 
 
 	Vector3 newRotation = Vector3.Zero;
@@ -38,7 +44,7 @@ public partial class Joint : Node3D
 	{
 		//await ToSignal(GetTree().CreateTimer(GD.RandRange(0f, maxDelay)), "timeout");
 
-		float from = Rotation.Z;
+		float from = Rotation.Z - Mathf.Pi * 2f * unnecessaryTurns;
 		float t = 0, v;
 		float startTime = Time.GetTicksMsec(), now;
 

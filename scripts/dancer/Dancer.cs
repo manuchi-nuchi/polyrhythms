@@ -11,24 +11,30 @@ public partial class Dancer : Node3D
     Curve ease = new Curve();
     float duration = 0.2f;
 
+    [Export] PackedScene beatScene;
+    [Export] int beats = 2;
+    [Export] int dancingDirection = 1;
+
 
     public override void _Ready()
     {
         ease.AddPoint(Vector2.Zero);
         ease.AddPoint(Vector2.One);
+
+        Node3D instantiated;
+        float angle = 2f * Mathf.Pi / beats;
+
+        for (int i = 0; i < beats; i++)
+        {
+            instantiated = beatScene.Instantiate() as Node3D;
+            instantiated.Rotation = new Vector3(0, 0, angle * i);
+            AddChild(instantiated);
+        }
+
+        foreach (Joint joint in joints)
+            joint.Init(dancingDirection);
     }
 
-
-    //public override void _UnhandledInput(InputEvent @event)
-    //{
-    //    if (@event is InputEventKey eventKey)
-    //    {
-    //        if (eventKey.Pressed && eventKey.Keycode == Key.N && !@event.IsEcho())
-    //        {
-    //            NewPose();
-    //        }
-    //    }
-    //}
 
     public void NewPose()
     {
