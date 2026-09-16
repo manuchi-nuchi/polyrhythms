@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\mainmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\mainmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\dancer\\dancer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\dancer\\dancer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\dancer\\joint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\dancer\\joint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\mainmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\mainmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Joint.cs",
               "DocumentMoniker": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\Joint.cs",
               "RelativeDocumentMoniker": "scripts\\dancer\\Joint.cs",
@@ -34,30 +34,30 @@
               "RelativeToolTip": "scripts\\dancer\\Joint.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAQwBcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-16T12:21:19.066Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-16T12:21:19.066Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainManager.cs",
               "DocumentMoniker": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\MainManager.cs",
               "RelativeDocumentMoniker": "scripts\\MainManager.cs",
               "ToolTip": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\MainManager.cs",
               "RelativeToolTip": "scripts\\MainManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T08:15:57.368Z"
+              "WhenOpened": "2026-09-14T08:15:57.368Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Dancer.cs",
               "DocumentMoniker": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\Dancer.cs",
               "RelativeDocumentMoniker": "scripts\\dancer\\Dancer.cs",
               "ToolTip": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\Dancer.cs",
               "RelativeToolTip": "scripts\\dancer\\Dancer.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA2wCIAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-13T06:19:07.07Z",
               "EditorCaption": ""

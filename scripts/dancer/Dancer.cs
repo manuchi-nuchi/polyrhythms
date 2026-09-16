@@ -12,7 +12,7 @@ public partial class Dancer : Node3D
     float duration = 0.2f;
 
     [Export] PackedScene beatScene;
-    [Export] int beats = 2;
+    int beats = 2;
     [Export] int dancingDirection = 1;
 
 
@@ -21,6 +21,10 @@ public partial class Dancer : Node3D
         ease.AddPoint(Vector2.Zero);
         ease.AddPoint(Vector2.One);
 
+    }
+
+    public void Init(int beats)
+    {
         Node3D instantiated;
         float angle = 2f * Mathf.Pi / beats;
 

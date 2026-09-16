@@ -7,6 +7,20 @@ public partial class MainManager : Node3D
 	[Export] Dancer rDancer;
 
 
+    public override void _Ready()
+    {
+		int beats;
+
+		beats = Mathf.Abs((int)GD.Randi()) % 4 + 2;
+        GD.Print(beats);
+        lDancer.Init(beats);
+
+		beats = Mathf.Abs((int)GD.Randi()) % 4 + 2;
+		GD.Print(beats);
+        rDancer.Init(beats);
+    }
+
+
 	public override void _Process(double delta)
 	{
 	}
