@@ -14,6 +14,8 @@ public partial class Dancer : Node3D
     [Export] PackedScene beatScene;
     int beats = 2;
     [Export] int dancingDirection = 1;
+    [Export] Array<Sprite3D> colored;
+    [Export] float hueOffset = 0.2f;
 
 
     public override void _Ready()
@@ -21,6 +23,29 @@ public partial class Dancer : Node3D
         ease.AddPoint(Vector2.Zero);
         ease.AddPoint(Vector2.One);
 
+        PaintBody();
+    }
+
+    void PaintBody()
+    {
+        // chest and head are at 0 and 1
+        // rest, which gets interpolated, is placed from 2
+
+        float hueA = GD.Randf();
+        float huheB = hueA < 0.8f ? hueA + hueOffset : hueA - hueOffset;
+
+        float step = 1f / (colored.Count - 3);
+        for (int i = 0; i < colored.Count - 2; i++)
+        {
+            colored[i + 2].Modulate = Color.FromHsv(
+                Mathf.Lerp(hueA, huheB, step * i),
+                1,
+                1
+            );
+        }
+
+        colored[0].Modulate = Color.FromHsv(Mathf.Lerp(hueA, huheB, .5f), .9f, .9f);
+        colored[1].Modulate = Color.FromHsv(Mathf.Lerp(hueA, huheB, .5f), 1, 1);
     }
 
     public void Init(int beats)

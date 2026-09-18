@@ -12,11 +12,9 @@ public partial class MainManager : Node3D
 		int beats;
 
 		beats = Mathf.Abs((int)GD.Randi()) % 4 + 2;
-        GD.Print(beats);
         lDancer.Init(beats);
 
 		beats = Mathf.Abs((int)GD.Randi()) % 4 + 2;
-		GD.Print(beats);
         rDancer.Init(beats);
     }
 
