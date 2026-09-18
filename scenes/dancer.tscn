@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://bcw102xy2hcse" path="res://scripts/utils/PingpongRotation.cs" id="2_sbecm"]
 [ext_resource type="Script" uid="uid://5h5rui73yofx" path="res://scripts/utils/WiggleInPlace.cs" id="2_up8c3"]
 [ext_resource type="Script" uid="uid://c70sprhlyho0w" path="res://scripts/dancer/Joint.cs" id="3_up8c3"]
-[ext_resource type="Script" uid="uid://cl885pi3owd5o" path="res://scripts/utils/ConstantRotation.cs" id="6_5seu1"]
 [ext_resource type="Script" uid="uid://dxvlypbf2ngrk" path="res://scripts/utils/SinedRotation.cs" id="6_gum5n"]
+[ext_resource type="Script" uid="uid://ctqn38qrwqh3q" path="res://scripts/RotateToTempo.cs" id="7_2cwek"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4gaf"]
 transparency = 1
@@ -246,8 +246,7 @@ pixel_size = 0.005
 texture = ExtResource("1_l4u0v")
 
 [node name="tempo holder" type="Node3D" parent="." unique_id=1495681103]
-script = ExtResource("6_5seu1")
-bpm = 50
+script = ExtResource("7_2cwek")
 
 [node name="particles" type="GPUParticles3D" parent="tempo holder" unique_id=829475381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1589005, 6.0830483, 0)

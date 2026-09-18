@@ -6,13 +6,17 @@ public partial class Joint : Node3D
 	[Export] double minAngle;
 	[Export] double maxAngle;
 	float duration = 0.2f;
-	float maxDelay = 0.2f;
+    float actualDuration;
+    float maxDelay = 0.2f;
 	Curve ease = new Curve();
 	int unnecessaryTurns = 1;
 
 
 	public override void _Ready()
 	{
+		Actions.NewTempo += RecomputeDuration;
+		RecomputeDuration();
+
         ease.AddPoint(Vector2.Zero);
         ease.AddPoint(Vector2.One);
 
@@ -48,11 +52,11 @@ public partial class Joint : Node3D
 		float t = 0, v;
 		float startTime = Time.GetTicksMsec(), now;
 
-		while (t < duration)
+		while (t < actualDuration)
 		{
 			now = Time.GetTicksMsec();
 			t = (now - startTime) / 1000f;
-			v = t / duration;
+			v = t / actualDuration;
 			newRotation.Z = Mathf.Lerp(from, to, ease.Sample(v));
 			
 			Rotation = newRotation;
@@ -60,4 +64,14 @@ public partial class Joint : Node3D
 			await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 		}
 	}
+
+	float sigmoid;
+	void RecomputeDuration()
+	{
+		// sigmoid with center at 50 and scaled by 10
+		sigmoid = 1f / (1f + Mathf.Exp(-((TempoManager.BPM - 50) / 10f)));
+
+		// sigmoid determines up to 70% variation in original duration
+        actualDuration = duration * (1f - 0.7f * (sigmoid - 0.5f) * 2f);
+    }
 }

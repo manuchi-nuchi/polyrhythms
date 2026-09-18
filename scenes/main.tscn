@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cd75dy0h0f2uj" path="res://scenes/dancer.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://c7ncvcekndidb" path="res://sprites/white circle w transparent bg.png" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://b5dd08iujlxlp" path="res://icon.svg" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://c3h6j0nekx1qj" path="res://scripts/TempoManager.cs" id="5_tefeu"]
 
 [sub_resource type="Environment" id="Environment_xt7np"]
 background_mode = 1
@@ -98,3 +99,7 @@ speed = 20.0
 [node name="Sprite3D" type="Sprite3D" parent="Node3D/particles" unique_id=348790274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75907326)
 texture = ExtResource("5_tbgi4")
+
+[node name="TempoManager" type="Node3D" parent="." unique_id=1503879145]
+script = ExtResource("5_tefeu")
+bpm = 100
