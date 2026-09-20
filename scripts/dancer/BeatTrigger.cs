@@ -6,8 +6,7 @@ public partial class BeatTrigger : Area3D
 	[Export] Sprite3D visuals;
 	[Export] float minSize = 0.003f;
 	[Export] float maxSize = 0.006f;
-	Node3D other = null;
-	float startDistance;
+	public Node3D other = null;
 
 	[Export] Node3D root;
 	float angle;

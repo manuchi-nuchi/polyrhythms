@@ -12,7 +12,12 @@ public partial class Dancer : Node3D
     float duration = 0.2f;
 
     [Export] PackedScene beatScene;
+    [Export] PackedScene beatFeedbackScene;
+    [Export] Node3D tempoVisuals;
     int beats = 2;
+    Array<BeatTrigger> beatTriggers;
+    [Export] float feedbackDuration = 1;
+
     [Export] int dancingDirection = 1;
     [Export] Array<Sprite3D> colored;
     [Export] float hueOffset = 0.2f;
@@ -52,12 +57,14 @@ public partial class Dancer : Node3D
     {
         Node3D instantiated;
         float angle = 2f * Mathf.Pi / beats;
+        beatTriggers = new Array<BeatTrigger>();
 
         for (int i = 0; i < beats; i++)
         {
             instantiated = beatScene.Instantiate() as Node3D;
             instantiated.Rotation = new Vector3(0, 0, angle * i);
             AddChild(instantiated);
+            beatTriggers.Add(instantiated.GetChild(0).GetChild(0) as BeatTrigger);
         }
 
         foreach (Joint joint in joints)
@@ -67,9 +74,28 @@ public partial class Dancer : Node3D
 
     public void NewPose()
     {
-        foreach (Joint joint in joints)
-            joint.NewPose();
 
+        bool inTime = false;
+        foreach(BeatTrigger beat in beatTriggers)
+        {
+            if (beat.inside)
+            {
+                inTime = true;
+                ////
+                ///
+                break;
+            }
+        }
+
+        if (!inTime)
+        {
+            BadBeatFeedback();
+
+            ////
+        }
+
+        foreach (Joint joint in joints)
+            joint.NewPose(!inTime);
         MoveBody();
     }
 
@@ -93,5 +119,34 @@ public partial class Dancer : Node3D
 
             await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
         }
+    }
+
+    void BadBeatFeedback()
+    {
+        Sprite3D feedback = beatFeedbackScene.Instantiate() as Sprite3D;
+        AddChild(feedback);
+        feedback.GlobalPosition = tempoVisuals.GlobalPosition;
+        Fade(feedback);
+    }
+
+    async void Fade(Sprite3D target)
+    {
+        float t = 0, v;
+        float startTime = Time.GetTicksMsec(), now;
+        Color color = new Color(1, 1, 1, 1);
+
+        while (t < feedbackDuration)
+        {
+            now = Time.GetTicksMsec();
+            t = (now - startTime) / 1000f;
+            v = t / feedbackDuration;
+
+            color.A = 1f - v;
+            target.Modulate = color;
+
+            await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+        }
+
+        target.QueueFree();
     }
 }

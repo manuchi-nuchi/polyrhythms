@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://4mo6otra7lp8"]
+
+[ext_resource type="Texture2D" uid="uid://c7ncvcekndidb" path="res://sprites/white circle w transparent bg.png" id="1_oarif"]
+
+[node name="BeatFeedback" type="Sprite3D" unique_id=1061251667]
+pixel_size = 0.005
+texture = ExtResource("1_oarif")
