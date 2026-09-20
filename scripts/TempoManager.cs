@@ -69,25 +69,25 @@ public partial class TempoManager : Node3D
             switch (keyEvent.Keycode)
             {
                 case Key.Up:
+                    bpm += 5;
+                    ComputeSpeed();
+                    break; 
+                case Key.Down:
+                    bpm -= 5;
+                    if (bpm < 1)
+                        bpm = 1;
+                    ComputeSpeed();
+                    break; 
+                case Key.Right:
                     bpm++;
                     ComputeSpeed();
                     break;
-                case Key.Down:
+                case Key.Left:
                     if (bpm > 0)
                     {
                         bpm--;
                         ComputeSpeed();
                     }
-                    break;
-                case Key.Right:
-                    bpm += 10;
-                    ComputeSpeed();
-                    break;
-                case Key.Left:
-                    bpm -= 10;
-                    if (bpm < 1)
-                        bpm = 1;
-                    ComputeSpeed();
                     break;
             }
         }
