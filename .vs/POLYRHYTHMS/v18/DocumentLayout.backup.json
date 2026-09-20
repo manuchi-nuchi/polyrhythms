@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\TempoTrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\dancer\\TempoTrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\tempomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\tempomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,12 +23,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TempoTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\TempoTrigger.cs",
+              "RelativeDocumentMoniker": "scripts\\dancer\\TempoTrigger.cs",
+              "ToolTip": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\TempoTrigger.cs",
+              "RelativeToolTip": "scripts\\dancer\\TempoTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T10:45:01.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TempoManager.cs",
               "DocumentMoniker": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\TempoManager.cs",
               "RelativeDocumentMoniker": "scripts\\TempoManager.cs",
               "ToolTip": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\TempoManager.cs",
               "RelativeToolTip": "scripts\\TempoManager.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAswDAAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAADwv1oAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-18T09:08:31.887Z",
               "EditorCaption": ""

@@ -77,7 +77,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 0)
 dancingDirection = -1
 
 [node name="r dancer" parent="." unique_id=1172719978 instance=ExtResource("1_o5qli")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1973257661]
 
@@ -102,3 +104,4 @@ texture = ExtResource("5_tbgi4")
 
 [node name="TempoManager" type="Node3D" parent="." unique_id=1503879145]
 script = ExtResource("5_tefeu")
+bpm = 5

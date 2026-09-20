@@ -36,6 +36,9 @@ color = Color(0.91924584, 0.06363844, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_gum5n"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_xt7np"]
+radius = 1.0
+
 [node name="Dancer" type="Node3D" unique_id=985012125 node_paths=PackedStringArray("joints", "body", "colored")]
 script = ExtResource("1_coskt")
 joints = [NodePath("body/body wiggle/chest/neck joint"), NodePath("body/body wiggle/r shoulder joint"), NodePath("body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r forearm joint"), NodePath("body/body wiggle/l shoulder joint"), NodePath("body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l forearm joint"), NodePath("body/body wiggle/r hip joint"), NodePath("body/body wiggle/r hip joint/r hip wiggle/r knee/r calve joint"), NodePath("body/body wiggle/l hip joint"), NodePath("body/body wiggle/l hip joint/l hip wiggle/l knee/l calve joint")]
@@ -261,7 +264,12 @@ draw_pass_1 = SubResource("QuadMesh_gum5n")
 script = ExtResource("6_gum5n")
 bpm = 191
 
-[node name="Sprite3D" type="Sprite3D" parent="tempo holder" unique_id=762075555]
+[node name="tempo area" type="Area3D" parent="tempo holder" unique_id=2024520743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tempo holder/tempo area" unique_id=499403992]
+shape = SubResource("SphereShape3D_xt7np")
+
+[node name="Sprite3D" type="Sprite3D" parent="tempo holder/tempo area" unique_id=762075555]
 pixel_size = 0.001
 texture = ExtResource("1_l4u0v")

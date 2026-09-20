@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b4lj3nxo48x0n"]
 
 [ext_resource type="Texture2D" uid="uid://c7ncvcekndidb" path="res://sprites/white circle w transparent bg.png" id="1_78s00"]
+[ext_resource type="Script" uid="uid://c6fp7yuo4jkss" path="res://scripts/dancer/BeatTrigger.cs" id="2_2qhaw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xt7np"]
 
 [node name="PatternBeat" type="Node3D" unique_id=281183554]
 
@@ -9,3 +12,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 sorting_offset = 10.0
 pixel_size = 0.003
 texture = ExtResource("1_78s00")
+
+[node name="beat area" type="Area3D" parent="beat visuals" unique_id=940222455 node_paths=PackedStringArray("visuals", "root")]
+script = ExtResource("2_2qhaw")
+visuals = NodePath("..")
+root = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="beat visuals/beat area" unique_id=987843606]
+shape = SubResource("SphereShape3D_xt7np")
+
+[connection signal="area_entered" from="beat visuals/beat area" to="beat visuals/beat area" method="OnAreaEntered"]
+[connection signal="area_exited" from="beat visuals/beat area" to="beat visuals/beat area" method="OnAreaExited"]
