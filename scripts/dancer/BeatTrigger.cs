@@ -5,7 +5,10 @@ public partial class BeatTrigger : Sprite3D
 {
 	[Export] float minSize = 0.003f;
 	[Export] float maxSize = 0.006f;
-	public Node3D other = null;
+
+	float feedbackStartSize;
+	[Export] float feedbackTargetSize = .01f;
+	[Export] float feedbackDuration = .5f;
 
 	Node3D parent;
 	float angle;
@@ -37,6 +40,24 @@ public partial class BeatTrigger : Sprite3D
     {
 		PixelSize = Inside ? maxSize : minSize;
     }
+
+	public async void Feedback()
+	{
+		float t = 0, v;
+		float startTime = Time.GetTicksMsec(), now;
+
+		while (t < feedbackDuration)
+		{
+			now = Time.GetTicksMsec();
+			t = (now - startTime) / 1000f;
+			v = t / feedbackDuration;
+			beatColor.PixelSize = Mathf.Lerp(feedbackTargetSize, feedbackStartSize, v);
+
+			await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+		}
+
+		beatColor.PixelSize = feedbackStartSize;
+	}
 
 
 	public bool Inside

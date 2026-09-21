@@ -89,8 +89,8 @@ public partial class Dancer : Node3D
             if (beat.Inside)
             {
                 inTime = true;
+                beat.Feedback();
                 ////
-                ///
                 break;
             }
         }
