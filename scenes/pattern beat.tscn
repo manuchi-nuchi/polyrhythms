@@ -3,6 +3,47 @@
 [ext_resource type="Texture2D" uid="uid://c7ncvcekndidb" path="res://sprites/white circle w transparent bg.png" id="1_78s00"]
 [ext_resource type="Script" uid="uid://c6fp7yuo4jkss" path="res://scripts/dancer/BeatTrigger.cs" id="2_2qhaw"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qhaw"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_78s00")
+
+[sub_resource type="Curve" id="Curve_ugo3h"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.453761, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_p05ic"]
+curve = SubResource("Curve_ugo3h")
+
+[sub_resource type="Curve" id="Curve_2qhaw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2qhaw"]
+curve = SubResource("Curve_2qhaw")
+
+[sub_resource type="Curve" id="Curve_qit42"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 10), 0.0, 0.0, 0, 0, Vector2(0.7453704, 10), 0.0, 0.0, 0, 0, Vector2(1, 0), -140.76425, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pqap2"]
+curve = SubResource("Curve_qit42")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xt7np"]
+lifetime_randomness = 0.5
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+velocity_limit_curve = SubResource("CurveTexture_pqap2")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_curve = SubResource("CurveTexture_2qhaw")
+alpha_curve = SubResource("CurveTexture_p05ic")
+
+[sub_resource type="QuadMesh" id="QuadMesh_i4noh"]
+
 [node name="PatternBeat" type="Node3D" unique_id=281183554]
 
 [node name="beat visuals" type="Sprite3D" parent="." unique_id=996773952]
@@ -12,6 +53,7 @@ pixel_size = 0.003
 texture = ExtResource("1_78s00")
 script = ExtResource("2_2qhaw")
 feedbackDuration = 0.3
+texture = ExtResource("1_78s00")
 
 [node name="beat color frame" type="Sprite3D" parent="beat visuals" unique_id=896659870]
 visible = false
@@ -25,3 +67,14 @@ sorting_offset = 12.0
 modulate = Color(1, 0, 0.583333, 1)
 pixel_size = 0.002
 texture = ExtResource("1_78s00")
+
+[node name="particles" type="GPUParticles3D" parent="beat visuals" unique_id=1783066444]
+sorting_offset = 15.0
+material_override = SubResource("StandardMaterial3D_2qhaw")
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xt7np")
+draw_pass_1 = SubResource("QuadMesh_i4noh")

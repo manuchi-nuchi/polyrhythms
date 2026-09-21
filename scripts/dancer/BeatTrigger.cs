@@ -15,12 +15,17 @@ public partial class BeatTrigger : Sprite3D
 	float rangeMin, rangeMax;
 
 	Sprite3D beatColor;
+	GpuParticles3D particles;
+	[Export] Texture2D texture;
 
 
     public override void _Ready()
     {
 		parent = GetParent() as Node3D;
 		beatColor = GetChild(1) as Sprite3D;
+		particles = GetChild(2) as GpuParticles3D;
+
+		feedbackStartSize = beatColor.PixelSize;
 
 		angle = parent.Rotation.Z;
 
@@ -43,6 +48,8 @@ public partial class BeatTrigger : Sprite3D
 
 	public async void Feedback()
 	{
+		particles.Restart();
+
 		float t = 0, v;
 		float startTime = Time.GetTicksMsec(), now;
 
@@ -74,6 +81,17 @@ public partial class BeatTrigger : Sprite3D
 
 	public Color Color
 	{
-		set => beatColor.Modulate = value;
-	}
+		set
+		{
+			beatColor.Modulate = value;
+
+			StandardMaterial3D material = new StandardMaterial3D();
+			material.Transparency = BaseMaterial3D.TransparencyEnum.Alpha;
+			material.ShadingMode = BaseMaterial3D.ShadingModeEnum.Unshaded;
+			material.AlbedoColor = value;
+			material.AlbedoTexture = texture;
+			particles.MaterialOverride = material;
+		}
+
+    }
 }
