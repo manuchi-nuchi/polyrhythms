@@ -11,3 +11,16 @@ sorting_offset = 10.0
 pixel_size = 0.003
 texture = ExtResource("1_78s00")
 script = ExtResource("2_2qhaw")
+
+[node name="beat color frame" type="Sprite3D" parent="beat visuals" unique_id=896659870]
+visible = false
+sorting_offset = 11.0
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.0022
+texture = ExtResource("1_78s00")
+
+[node name="beat color" type="Sprite3D" parent="beat visuals" unique_id=48955398]
+sorting_offset = 12.0
+modulate = Color(1, 0, 0.583333, 1)
+pixel_size = 0.002
+texture = ExtResource("1_78s00")

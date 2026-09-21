@@ -11,10 +11,13 @@ public partial class BeatTrigger : Sprite3D
 	float angle;
 	float rangeMin, rangeMax;
 
+	Sprite3D beatColor;
+
 
     public override void _Ready()
     {
 		parent = GetParent() as Node3D;
+		beatColor = GetChild(1) as Sprite3D;
 
 		angle = parent.Rotation.Z;
 
@@ -47,4 +50,9 @@ public partial class BeatTrigger : Sprite3D
 	{
 		get => TempoManager.Angle % Mathf.Tau;
     }
+
+	public Color Color
+	{
+		set => beatColor.Modulate = value;
+	}
 }

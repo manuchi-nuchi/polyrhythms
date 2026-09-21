@@ -27,11 +27,11 @@ public partial class Dancer : Node3D
     {
         ease.AddPoint(Vector2.Zero);
         ease.AddPoint(Vector2.One);
-
-        PaintBody();
     }
 
-    void PaintBody()
+    float midHue;
+    Color oppositeColor;
+    void Paint()
     {
         // chest and head are at 0 and 1
         // rest, which gets interpolated, is placed from 2
@@ -49,8 +49,14 @@ public partial class Dancer : Node3D
             );
         }
 
-        colored[0].Modulate = Color.FromHsv(Mathf.Lerp(hueA, huheB, .5f), .9f, .9f);
-        colored[1].Modulate = Color.FromHsv(Mathf.Lerp(hueA, huheB, .5f), 1, 1);
+        midHue = Mathf.Lerp(hueA, huheB, .5f);
+        colored[0].Modulate = Color.FromHsv(midHue, .9f, .9f);
+        colored[1].Modulate = Color.FromHsv(midHue, 1, 1);
+
+
+        oppositeColor = Color.FromHsv((midHue + .5f) % 1f, 1, 1);
+        foreach (BeatTrigger beat in beatTriggers)
+            beat.Color = oppositeColor;
     }
 
     public void Init(int beats)
@@ -69,6 +75,8 @@ public partial class Dancer : Node3D
 
         foreach (Joint joint in joints)
             joint.Init(dancingDirection);
+
+        Paint();
     }
 
 
