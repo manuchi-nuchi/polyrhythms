@@ -68,6 +68,9 @@ script = ExtResource("1_0wfyh")
 lDancer = NodePath("l dancer")
 rDancer = NodePath("r dancer")
 
+[node name="TempoManager" type="Node3D" parent="." unique_id=1503879145]
+script = ExtResource("5_tefeu")
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1921282444]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.674057)
 environment = SubResource("Environment_xt7np")
@@ -99,6 +102,3 @@ speed = 20.0
 [node name="Sprite3D" type="Sprite3D" parent="Node3D/particles" unique_id=348790274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75907326)
 texture = ExtResource("5_tbgi4")
-
-[node name="TempoManager" type="Node3D" parent="." unique_id=1503879145]
-script = ExtResource("5_tefeu")

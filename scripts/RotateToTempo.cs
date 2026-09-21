@@ -7,8 +7,6 @@ public partial class RotateToTempo : Node3D
     public override void _Process(double delta)
     {
         newRotation.Z = TempoManager.Angle;
-        if (newRotation.Z > 360)
-            newRotation.Z -= 360;
         Rotation = newRotation;
     }
 }
