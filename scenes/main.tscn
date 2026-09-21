@@ -102,4 +102,3 @@ texture = ExtResource("5_tbgi4")
 
 [node name="TempoManager" type="Node3D" parent="." unique_id=1503879145]
 script = ExtResource("5_tefeu")
-bpm = 5

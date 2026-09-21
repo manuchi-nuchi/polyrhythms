@@ -64,7 +64,7 @@ public partial class Dancer : Node3D
             instantiated = beatScene.Instantiate() as Node3D;
             instantiated.Rotation = new Vector3(0, 0, angle * i);
             AddChild(instantiated);
-            beatTriggers.Add(instantiated.GetChild(0).GetChild(0) as BeatTrigger);
+            beatTriggers.Add(instantiated.GetChild(0) as BeatTrigger);
         }
 
         foreach (Joint joint in joints)
@@ -78,7 +78,7 @@ public partial class Dancer : Node3D
         bool inTime = false;
         foreach(BeatTrigger beat in beatTriggers)
         {
-            if (beat.inside)
+            if (beat.Inside)
             {
                 inTime = true;
                 ////

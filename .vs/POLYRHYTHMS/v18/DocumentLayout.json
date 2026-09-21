@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\dancer\\beattrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|c:\\users\\mherr\\documents\\github\\polyrhythms\\scripts\\mainmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B5960A9-AD0C-4D1B-A2E2-29ACDA54DED2}|polyrhythms.csproj|solutionrelative:scripts\\mainmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,8 +30,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 259,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Globals.cs",
+              "DocumentMoniker": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\Globals.cs",
+              "RelativeDocumentMoniker": "scripts\\Globals.cs",
+              "ToolTip": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\Globals.cs",
+              "RelativeToolTip": "scripts\\Globals.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-21T07:23:06.5Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -36,14 +53,14 @@
               "RelativeDocumentMoniker": "scripts\\dancer\\Dancer.cs",
               "ToolTip": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\Dancer.cs",
               "RelativeToolTip": "scripts\\dancer\\Dancer.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAQwI8AAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAACAu10vTW0mwEIAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-20T12:40:42.838Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainManager.cs",
               "DocumentMoniker": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\MainManager.cs",
               "RelativeDocumentMoniker": "scripts\\MainManager.cs",
@@ -51,8 +68,7 @@
               "RelativeToolTip": "scripts\\MainManager.cs",
               "ViewState": "AgIAAAkAAACArIvbaDghwBYAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-20T12:38:47.393Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-20T12:38:47.393Z"
             },
             {
               "$type": "Document",
@@ -62,14 +78,14 @@
               "RelativeDocumentMoniker": "scripts\\dancer\\BeatTrigger.cs",
               "ToolTip": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\dancer\\BeatTrigger.cs",
               "RelativeToolTip": "scripts\\dancer\\BeatTrigger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-20T11:03:57.292Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TempoManager.cs",
               "DocumentMoniker": "C:\\Users\\mherr\\Documents\\GitHub\\polyrhythms\\scripts\\TempoManager.cs",
               "RelativeDocumentMoniker": "scripts\\TempoManager.cs",

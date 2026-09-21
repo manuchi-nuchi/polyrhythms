@@ -37,9 +37,6 @@ color = Color(0.91924584, 0.06363844, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_gum5n"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_xt7np"]
-radius = 1.0
-
 [node name="Dancer" type="Node3D" unique_id=985012125 node_paths=PackedStringArray("joints", "body", "tempoVisuals", "colored")]
 script = ExtResource("1_coskt")
 joints = [NodePath("body/body wiggle/chest/neck joint"), NodePath("body/body wiggle/r shoulder joint"), NodePath("body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r forearm joint"), NodePath("body/body wiggle/l shoulder joint"), NodePath("body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l forearm joint"), NodePath("body/body wiggle/r hip joint"), NodePath("body/body wiggle/r hip joint/r hip wiggle/r knee/r calve joint"), NodePath("body/body wiggle/l hip joint"), NodePath("body/body wiggle/l hip joint/l hip wiggle/l knee/l calve joint")]
@@ -47,7 +44,7 @@ maxBodyOffset = 7.0
 body = NodePath("body")
 beatScene = ExtResource("2_2cwek")
 beatFeedbackScene = ExtResource("3_ysbu8")
-tempoVisuals = NodePath("tempo holder/tempo area/tempo visuals")
+tempoVisuals = NodePath("tempo holder/tempo visuals")
 feedbackDuration = 0.5
 colored = [NodePath("body/body wiggle/chest/chest color"), NodePath("body/body wiggle/chest/neck joint/neck wiggle/head/head color"), NodePath("body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r forearm joint/r forearm wiggle/r hand/r hand color"), NodePath("body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r elbow color"), NodePath("body/body wiggle/r hip joint/r hip wiggle/r knee/r calve joint/r calve wiggle/r foot/r foot color"), NodePath("body/body wiggle/r hip joint/r hip wiggle/r knee/r knee color"), NodePath("body/body wiggle/l hip joint/l hip wiggle/l knee/l knee color"), NodePath("body/body wiggle/l hip joint/l hip wiggle/l knee/l calve joint/l calve wiggle/l foot/l foot color"), NodePath("body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l elbow color"), NodePath("body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l forearm joint/l forearm wiggle/l hand/l hand color")]
 hueOffset = 0.15
@@ -268,12 +265,7 @@ draw_pass_1 = SubResource("QuadMesh_gum5n")
 script = ExtResource("6_gum5n")
 bpm = 191
 
-[node name="tempo area" type="Area3D" parent="tempo holder" unique_id=2024520743]
+[node name="tempo visuals" type="Sprite3D" parent="tempo holder" unique_id=762075555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tempo holder/tempo area" unique_id=499403992]
-shape = SubResource("SphereShape3D_xt7np")
-
-[node name="tempo visuals" type="Sprite3D" parent="tempo holder/tempo area" unique_id=762075555]
 pixel_size = 0.001
 texture = ExtResource("1_l4u0v")

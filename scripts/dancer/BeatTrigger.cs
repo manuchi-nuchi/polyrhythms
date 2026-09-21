@@ -1,41 +1,50 @@
 using Godot;
 using System;
 
-public partial class BeatTrigger : Area3D
+public partial class BeatTrigger : Sprite3D
 {
-	[Export] Sprite3D visuals;
 	[Export] float minSize = 0.003f;
 	[Export] float maxSize = 0.006f;
 	public Node3D other = null;
 
-	[Export] Node3D root;
+	Node3D parent;
 	float angle;
-
-
-	public bool inside = false;
+	float rangeMin, rangeMax;
 
 
     public override void _Ready()
     {
-		angle = root.Rotation.Z;
+		parent = GetParent() as Node3D;
+
+		angle = parent.Rotation.Z;
+
+		if (angle > 0)
+		{
+			rangeMin = angle - Globals.ErrorMargin;
+			rangeMax = angle + Globals.ErrorMargin;
+		}
+		else
+		{
+			rangeMin = Mathf.Tau - Globals.ErrorMargin;
+			rangeMax = Globals.ErrorMargin;
+		}
     }
 
     public override void _Process(double delta)
     {
-		if (angle < TempoManager.Angle % Mathf.Tau)
-			; ////
+		PixelSize = Inside ? maxSize : minSize;
     }
 
 
-	void OnAreaEntered(Node3D body)
+	public bool Inside
 	{
-		inside = true;
-		visuals.PixelSize = maxSize;
+		get => angle > 0 ?
+            CurrentAngle > rangeMin && CurrentAngle < rangeMax :
+            CurrentAngle > rangeMin || CurrentAngle < rangeMax;
     }
 
-	void OnAreaExited(Node3D body)
+	float CurrentAngle
 	{
-		inside = false;
-		visuals.PixelSize = minSize;
+		get => TempoManager.Angle % Mathf.Tau;
     }
 }
