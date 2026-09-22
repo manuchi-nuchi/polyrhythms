@@ -19,6 +19,8 @@ public partial class BeatTrigger : Sprite3D
 	GpuParticles3D particles;
 	[Export] Texture2D texture;
 
+	[Export] float headPitch = 1.1f;
+
 
     public override void _Ready()
     {
@@ -53,14 +55,22 @@ public partial class BeatTrigger : Sprite3D
 				||
 				(angle < 0.1f && previousAngle > 5.03f && CurrentAngle < 1f)
 			)
-				audio.Play();
+				Feedback();
 		} 
 
 		previousAngle = CurrentAngle;
     }
 
+	public void Play()
+	{
+		audio.PitchScale = angle == 0 ? headPitch : 1f;
+        audio.Play();
+    }
+
 	public async void Feedback()
 	{
+		Play();
+
 		particles.Restart();
 
 		float t = 0, v;

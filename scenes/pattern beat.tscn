@@ -54,6 +54,7 @@ texture = ExtResource("1_78s00")
 script = ExtResource("2_2qhaw")
 feedbackDuration = 0.3
 texture = ExtResource("1_78s00")
+headPitch = 3.0
 
 [node name="beat color frame" type="Sprite3D" parent="beat visuals" unique_id=896659870]
 visible = false
