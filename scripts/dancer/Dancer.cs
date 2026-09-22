@@ -22,6 +22,8 @@ public partial class Dancer : Node3D
     [Export] Array<Sprite3D> colored;
     [Export] float hueOffset = 0.2f;
 
+    [Export] AudioStreamPlayer3D audio;
+
 
     public override void _Ready()
     {
@@ -71,6 +73,7 @@ public partial class Dancer : Node3D
             instantiated.Rotation = new Vector3(0, 0, angle * i);
             AddChild(instantiated);
             beatTriggers.Add(instantiated.GetChild(0) as BeatTrigger);
+            beatTriggers[beatTriggers.Count - 1].Audio = audio;
         }
 
         foreach (Joint joint in joints)
@@ -82,7 +85,6 @@ public partial class Dancer : Node3D
 
     public void NewPose()
     {
-
         bool inTime = false;
         foreach(BeatTrigger beat in beatTriggers)
         {
@@ -90,6 +92,7 @@ public partial class Dancer : Node3D
             {
                 inTime = true;
                 beat.Feedback();
+                audio.Play();
                 ////
                 break;
             }
@@ -134,10 +137,10 @@ public partial class Dancer : Node3D
         Sprite3D feedback = beatFeedbackScene.Instantiate() as Sprite3D;
         AddChild(feedback);
         feedback.GlobalPosition = tempoVisuals.GlobalPosition;
-        Fade(feedback);
+        FadeBadBeatFeedback(feedback);
     }
 
-    async void Fade(Sprite3D target)
+    async void FadeBadBeatFeedback(Sprite3D target)
     {
         float t = 0, v;
         float startTime = Time.GetTicksMsec(), now;

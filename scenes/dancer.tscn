@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://4mo6otra7lp8" path="res://scenes/beat feedback.tscn" id="3_ysbu8"]
 [ext_resource type="Script" uid="uid://dxvlypbf2ngrk" path="res://scripts/utils/SinedRotation.cs" id="6_gum5n"]
 [ext_resource type="Script" uid="uid://ctqn38qrwqh3q" path="res://scripts/RotateToTempo.cs" id="7_2cwek"]
+[ext_resource type="AudioStream" uid="uid://bukwexee4mev0" path="res://sounds/KICK1-1.wav" id="10_h4gaf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4gaf"]
 transparency = 1
@@ -37,7 +38,7 @@ color = Color(0.91924584, 0.06363844, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_gum5n"]
 
-[node name="Dancer" type="Node3D" unique_id=985012125 node_paths=PackedStringArray("joints", "body", "tempoVisuals", "colored")]
+[node name="Dancer" type="Node3D" unique_id=985012125 node_paths=PackedStringArray("joints", "body", "tempoVisuals", "colored", "audio")]
 script = ExtResource("1_coskt")
 joints = [NodePath("body/body wiggle/chest/neck joint"), NodePath("body/body wiggle/r shoulder joint"), NodePath("body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r forearm joint"), NodePath("body/body wiggle/l shoulder joint"), NodePath("body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l forearm joint"), NodePath("body/body wiggle/r hip joint"), NodePath("body/body wiggle/r hip joint/r hip wiggle/r knee/r calve joint"), NodePath("body/body wiggle/l hip joint"), NodePath("body/body wiggle/l hip joint/l hip wiggle/l knee/l calve joint")]
 maxBodyOffset = 7.0
@@ -48,6 +49,7 @@ tempoVisuals = NodePath("tempo holder/tempo visuals")
 feedbackDuration = 0.5
 colored = [NodePath("body/body wiggle/chest/chest color"), NodePath("body/body wiggle/chest/neck joint/neck wiggle/head/head color"), NodePath("body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r forearm joint/r forearm wiggle/r hand/r hand color"), NodePath("body/body wiggle/r shoulder joint/r shoulder wiggle/r elbow/r elbow color"), NodePath("body/body wiggle/r hip joint/r hip wiggle/r knee/r calve joint/r calve wiggle/r foot/r foot color"), NodePath("body/body wiggle/r hip joint/r hip wiggle/r knee/r knee color"), NodePath("body/body wiggle/l hip joint/l hip wiggle/l knee/l knee color"), NodePath("body/body wiggle/l hip joint/l hip wiggle/l knee/l calve joint/l calve wiggle/l foot/l foot color"), NodePath("body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l elbow color"), NodePath("body/body wiggle/l shoulder joint/l shoulder wiggle/l elbow/l forearm joint/l forearm wiggle/l hand/l hand color")]
 hueOffset = 0.15
+audio = NodePath("AudioStreamPlayer3D")
 
 [node name="body" type="Node3D" parent="." unique_id=191748250]
 
@@ -269,3 +271,6 @@ bpm = 191
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 pixel_size = 0.001
 texture = ExtResource("1_l4u0v")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1685976011]
+stream = ExtResource("10_h4gaf")

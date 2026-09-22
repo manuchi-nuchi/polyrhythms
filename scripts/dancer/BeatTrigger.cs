@@ -11,8 +11,9 @@ public partial class BeatTrigger : Sprite3D
 	[Export] float feedbackDuration = .5f;
 
 	Node3D parent;
-	float angle;
+	float angle, previousAngle = 0;
 	float rangeMin, rangeMax;
+	AudioStreamPlayer3D audio;
 
 	Sprite3D beatColor;
 	GpuParticles3D particles;
@@ -44,6 +45,18 @@ public partial class BeatTrigger : Sprite3D
     public override void _Process(double delta)
     {
 		PixelSize = Inside ? maxSize : minSize;
+
+		if (Input.IsKeyPressed(Key.Ctrl))
+		{
+			if (
+				(previousAngle < angle && CurrentAngle >= angle)
+				||
+				(angle < 0.1f && previousAngle > 5.03f && CurrentAngle < 1f)
+			)
+				audio.Play();
+		} 
+
+		previousAngle = CurrentAngle;
     }
 
 	public async void Feedback()
@@ -94,4 +107,9 @@ public partial class BeatTrigger : Sprite3D
 		}
 
     }
+
+	public AudioStreamPlayer3D Audio
+	{
+		set => audio = value;
+	}
 }
